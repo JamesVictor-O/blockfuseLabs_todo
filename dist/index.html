@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="output.css" />
+  </head>
+  <body class="w-full h-screen bg-blue-400 flex justify-center align-middle">
+    <!-- todo list container -->
+    <main
+      class="bg-white w-full md:h-[70%] md:w-[50%] md:mt-7 flex flex-col items-center md:rounded-2xl"
+    >
+      <h2 class="mt-3 font-serif font-semibold text-2xl">TO_DO APP</h2>
+
+      <!-- todo input section -->
+      <section
+        class="w-full md:w-[90%] h-10 flex flex-row items-center justify-center mt-4"
+      >
+        <input
+          class="outline-none h-full bg-gray-200 border border-gray-400 p-2 w-[80%] rounded-tl-md rounded-bl-md md:w-[70%]"
+          type="text"
+          id="inputField"
+          placeholder="what do you intend doing today?"
+        />
+        <button
+          onclick="getInput()"
+          class="bg-blue-400 p-2 border border-gray-400 text-white text-xs h-full rounded-tr-md rounded-br-md"
+        >
+          Add +
+        </button>
+      </section>
+
+      <!-- todos section -->
+      <section
+        class="border-t-2 border-gray-400 w-full mt-5 px-2 py-4 flex justify-center"
+      >
+        <ul class="space-y-3">
+          <li
+            class="flex flex-row items-center justify-between border-b border-gray-300 py-2"
+          >
+            <p class="flex-grow">Read some TypeScript documentation</p>
+            <div class="ml-2 flex items-center space-x-2">
+              <input type="checkbox" class="h-4 w-4 text-blue-600" />
+              <button class="text-red-500 font-semibold">X</button>
+            </div>
+          </li>
+          <li
+            class="flex flex-row items-center justify-between border-b border-gray-300 py-2"
+          >
+            <p class="flex-grow">Read some TypeScript documentation</p>
+            <div class="ml-2 flex items-center space-x-2">
+              <input type="checkbox" class="h-4 w-4 text-blue-600" />
+              <button class="text-red-500 font-semibold">X</button>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
