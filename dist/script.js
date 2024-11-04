@@ -9,21 +9,21 @@ function getInput() {
   inputField.value = "";
 
   //   calling inserted function
-  insertingTask(inputValue);
+  addTask(inputValue);
 }
 
 // putting task into task container
 
-function insertingTask(inputValue) {
-  if (inputValue == "") return;
+function addTask(inputValue) {
+  if (inputValue.length < 1) return;
     
-
     let todoInfo = {
       id: crypto.randomUUID(),
       todoContent: inputValue,
       completed: false,
     };
     to_Dos.push(todoInfo);
+    document.getElementById("totalTasks").innerText=to_Dos.length
    
     displayTask(todoInfo)
 
@@ -35,7 +35,7 @@ function displayTask(task){
     const listItem = document.createElement("li");
     listItem.className ="flex flex-row items-center justify-between border-b border-gray-300 py-2";
     listItem.id = task.id;
-    listItem.innerHTML = ` <p class="flex-grow" style="text-decoration: line-through;">${task.todoContent}</p>
+    listItem.innerHTML = ` <p class="flex-grow text-red-500 ">${task.todoContent}</p>
                 <div class="ml-2 flex items-center space-x-2">
                   <input type="checkbox" class="h-4 w-4 text-blue-600 checkBox" />
                   <button class="text-red-500 font-semibold removeTask" id="removeTask">X</button>
@@ -72,14 +72,38 @@ function deleteTask(button) {
 
     if(taskElement){
       taskElement.remove()
+      document.getElementById("totalTasks").innerText=to_Dos.length
     }
 }
-
+// function for checking and unchecking task
 function completed(box){
+  let completedTask=0
   let El=box.closest("li").querySelector("p");
-  console.log(box.checked)
+  let id=box.parentElement.parentElement.id;
+
+  let index=to_Dos.findIndex(task => task.id == id);
+ 
+
+
   if(box.checked){
-    El.className="underline"
+    El.classList.add("line-through")
+    to_Dos[index].completed=true
+    console.log(to_Dos)
+  }else{
+    El.classList.remove("line-through")
+    to_Dos[index].completed=false;
+    console.log(to_Dos)
   }
-    
+
+  // running through the whole array of todos to checked if the task has been completed.
+
+  for(i=0; i< to_Dos.length; i++){
+
+    if(to_Dos[i].completed == true){
+       completedTask += 1
+    }
+  }
+  document.getElementById("completed").innerText=completedTask
+  
+
 }

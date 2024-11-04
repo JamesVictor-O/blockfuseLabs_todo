@@ -15,20 +15,41 @@
 
       <!-- todo input section -->
       <section
-        class="w-full md:w-[90%] h-10 flex flex-row items-center justify-center mt-4"
+        class="w-full md:w-[90%]  "
       >
-        <input
-          class="outline-none h-full bg-gray-200 border border-gray-400 p-2 w-[80%] rounded-tl-md rounded-bl-md md:w-[70%]"
-          type="text"
-          id="inputField"
-          placeholder="what do you intend doing today?"
-        />
-        <button
-          onclick="getInput()"
-          class="bg-blue-400 p-2 border border-gray-400 text-white text-xs h-full rounded-tr-md rounded-br-md"
-        >
-          Add +
-        </button>
+        <div class="h-10 flex flex-row items-center justify-center mt-4">
+          <input
+            class="outline-none h-full bg-gray-200 border border-gray-400 p-2 w-[80%] rounded-tl-md rounded-bl-md md:w-[70%]"
+            type="text"
+            id="inputField"
+            placeholder="what do you intend doing today?"
+          />
+          <button
+            onclick="getInput()"
+            class="bg-blue-400 p-2 border border-gray-400 text-white text-xs h-full rounded-tr-md rounded-br-md"
+          >
+            Add +
+          </button>
+        </div>
+        <!-- todo counter -->
+         <div class="mt-4 flex flex-row items-center justify-between px-3 md:px-0">
+          <!-- total todos -->
+             <section class="flex flex-row items-center">
+               <h2 class="text-xs md:text-base">Total</h2>
+               <span id="totalTasks" class="bg-gray-400 px-2 py-1 rounded ml-3" >0</span>
+             </section>
+          <!-- completed todos -->
+          <section class="flex flex-row items-center">
+            <h2 class="text-xs md:text-base">Completed</h2>
+            <span id="completed" class="bg-gray-400 px-2 py-1 rounded ml-3">0</span>
+          </section>
+
+          <!-- uncompleted -->
+          <section class="flex flex-row items-center">
+            <h2 class="text-xs md:text-base">Uncompleted</h2>
+            <span id="uncompleted" class="bg-gray-400 px-2 py-1 rounded ml-3">0</span>
+          </section>
+         </div>
       </section>
 
       <!-- todos section -->
